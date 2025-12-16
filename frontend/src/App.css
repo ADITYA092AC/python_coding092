@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2c3e50;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gentleGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 229, 217, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 229, 217, 0.6);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes leafGrow {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.gentle-pulse {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+/* Cursor customization for guiding hand metaphor */
+.guiding-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%23FFE5D9" opacity="0.6"/></svg>'), auto;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, .interactive {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+button:hover, .interactive:hover {
+  transform: translateY(-2px);
+}
+
+/* Gentle page turn effect for sections */
+.section-transition {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Parallax elements */
+.parallax-slow {
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.parallax-medium {
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.parallax-fast {
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Ensure no text centering issues */
+.App {
+  text-align: left;
+}
+
+/* Selection styling */
+::selection {
+  background: #FFE5D9;
+  color: #2c3e50;
+}
+
+::-moz-selection {
+  background: #FFE5D9;
+  color: #2c3e50;
+}
+
+/* Smooth loading states */
+.loading-leaf {
+  animation: leafGrow 1.5s ease-out, gentleFloat 3s ease-in-out infinite 1.5s;
+}
+
+/* Accessibility - focus states */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid #C8D5B9;
+  outline-offset: 3px;
+}
+
+/* High contrast for readability */
+.text-high-contrast {
+  color: #1a202c;
+}
+
+/* Warm overlay */
+.warm-overlay {
+  position: relative;
+}
+
+.warm-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 229, 217, 0.1) 0%, rgba(200, 213, 185, 0.1) 100%);
+  pointer-events: none;
+}
